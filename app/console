@@ -1,0 +1,19 @@
+#!/usr/bin/env php
+<?php
+
+// set to run indefinitely if needed
+set_time_limit(0);
+
+// include the composer autoloader
+require_once __DIR__ . '/../vendor/autoload.php'; 
+
+// instantiate the console application
+$app = new Symfony\Component\Console\Application('Scraper', '0.1.0');
+
+// add the command that we want to execute
+$app->addCommands(array(
+    new Resources\Console\Scrape,
+));
+
+// now we run the applications
+$app->run();
